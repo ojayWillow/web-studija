@@ -213,22 +213,19 @@ img { max-width: 100%; display: block; }
 }
 .work-card:hover .browser-visit { opacity: 1; }
 
-/* The iframe viewport */
+/* Unified viewport height for ALL cards including wide */
 .browser-viewport {
   position: relative;
   width: 100%;
-  /* tall enough to show the hero of each site */
-  height: 260px;
+  height: 220px;
   overflow: hidden;
   background: #fff;
 }
-.work-card--wide .browser-viewport { height: 300px; }
 
 .browser-viewport iframe {
   position: absolute;
   top: 0;
   left: 0;
-  /* iframe renders at desktop width, then we scale it down to fit the card */
   width: 1280px;
   height: 900px;
   border: none;
@@ -237,10 +234,11 @@ img { max-width: 100%; display: block; }
   pointer-events: none;
   transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
 }
+/* Wide card: scale up slightly more since it has double the width */
 .work-card--wide .browser-viewport iframe {
   transform: scale(0.46);
 }
-/* On hover, gently pan down to show more of the page */
+/* Hover pan down for all cards */
 .work-card:hover .browser-viewport iframe {
   transform: scale(0.295) translateY(-180px);
 }
@@ -347,12 +345,11 @@ img { max-width: 100%; display: block; }
   .packages__grid { grid-template-columns: 1fr; }
   .work__grid { grid-template-columns: 1fr; }
   .work-card--wide { grid-column: span 1; }
-  .browser-viewport { height: 200px; }
-  .browser-viewport iframe { transform: scale(0.25); }
-  .work-card:hover .browser-viewport iframe { transform: scale(0.25) translateY(-180px); }
-  .work-card--wide .browser-viewport { height: 200px; }
-  .work-card--wide .browser-viewport iframe { transform: scale(0.25); }
-  .work-card--wide:hover .browser-viewport iframe { transform: scale(0.25) translateY(-180px); }
+  .browser-viewport { height: 180px; }
+  .browser-viewport iframe { transform: scale(0.22); }
+  .work-card:hover .browser-viewport iframe { transform: scale(0.22) translateY(-180px); }
+  .work-card--wide .browser-viewport iframe { transform: scale(0.22); }
+  .work-card--wide:hover .browser-viewport iframe { transform: scale(0.22) translateY(-180px); }
   .process__steps { grid-template-columns: 1fr; }
   .testimonials__grid { grid-template-columns: 1fr; }
   .hero__stats { flex-wrap: wrap; gap: 16px; } .hero__actions { flex-direction: column; }
