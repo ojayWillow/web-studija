@@ -146,7 +146,55 @@ if (!isTouchDevice) {
   });
 }
 
-// ── STEP 4: Portfolio — magnetic hover ──
+// ── STEP 4: Portfolio — iframe dynamic scaling ──
+const IFRAME_SRC_WIDTH = 1280; // iframe is always rendered at 1280px wide
+
+function scalePortfolioIframes() {
+  document.querySelectorAll('.browser-viewport').forEach(vp => {
+    const cardWidth = vp.offsetWidth;
+    if (!cardWidth) return;
+    const scale = cardWidth / IFRAME_SRC_WIDTH;
+    const iframe = vp.querySelector('iframe');
+    if (iframe) {
+      iframe.style.transform = `scale(${scale})`;
+      // store scale so hover can use it
+      vp.dataset.scale = scale;
+    }
+    // adjust viewport height to show a nice portion at computed scale
+    vp.style.height = Math.round(220 * (cardWidth / 375)) + 'px';
+    vp.style.height = Math.min(Math.max(vp.style.height.replace('px',''), 160), 240) + 'px';
+  });
+}
+
+window.addEventListener('resize', scalePortfolioIframes);
+document.addEventListener('DOMContentLoaded', () => {
+  scalePortfolioIframes();
+  // re-run once fonts/layout settle
+  setTimeout(scalePortfolioIframes, 300);
+});
+// also run immediately for non-DOMContentLoaded cases
+if (document.readyState !== 'loading') scalePortfolioIframes();
+
+// Hover scroll — shift iframe up to reveal more content
+if (!isTouchDevice) {
+  document.querySelectorAll('.work-card').forEach(card => {
+    const vp = card.querySelector('.browser-viewport');
+    card.addEventListener('mouseenter', () => {
+      if (!vp) return;
+      const scale = parseFloat(vp.dataset.scale) || 0.295;
+      const iframe = vp.querySelector('iframe');
+      if (iframe) iframe.style.transform = `scale(${scale}) translateY(-180px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      if (!vp) return;
+      const scale = parseFloat(vp.dataset.scale) || 0.295;
+      const iframe = vp.querySelector('iframe');
+      if (iframe) iframe.style.transform = `scale(${scale})`;
+    });
+  });
+}
+
+// ── Portfolio magnetic hover ──
 if (!isTouchDevice) {
   document.querySelectorAll('.work-card').forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -155,6 +203,7 @@ if (!isTouchDevice) {
       const y = (e.clientY - rect.top  - rect.height / 2) * 0.06;
       card.style.transform = `translate(${x}px,${y}px) scale(1.02)`;
     });
+    // mouseleave handled above, reset to base
     card.addEventListener('mouseleave', () => { card.style.transform = ''; });
   });
 }
@@ -170,6 +219,8 @@ filterBtns.forEach(btn => {
     workCards.forEach(card => {
       card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
     });
+    // re-scale iframes after filter changes layout
+    setTimeout(scalePortfolioIframes, 50);
   });
 });
 
