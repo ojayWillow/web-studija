@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kolab Web Studio — Web Packages & Digital Products</title>
+  <meta name="description" content="Kolab Web Studio builds high-converting landing pages, web products, and digital experiences for modern brands." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__logo">kolab<span>.</span></a>
+      <nav class="nav__links">
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#process">Process</a>
+        <a href="#work">Work</a>
+      </nav>
+      <a href="#contact" class="btn btn--outline nav__cta">Let's Talk</a>
+      <button class="nav__burger" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" class="mobile-menu__link">Services</a>
+    <a href="#packages" class="mobile-menu__link">Packages</a>
+    <a href="#process" class="mobile-menu__link">Process</a>
+    <a href="#work" class="mobile-menu__link">Work</a>
+    <a href="#contact" class="btn btn--primary">Let's Talk</a>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg-grid"></div>
+    <div class="hero__glow hero__glow--1"></div>
+    <div class="hero__glow hero__glow--2"></div>
+    <div class="container hero__inner">
+      <div class="hero__badge">✦ Digital Studio</div>
+      <h1 class="hero__headline">
+        We build pages<br/>
+        that <span class="hero__highlight">convert</span> &amp;<br/>
+        <span class="hero__highlight">captivate</span>
+      </h1>
+      <p class="hero__sub">
+        Kolab Web Studio crafts high-performance landing pages, web products, and
+        digital experiences — engineered to turn visitors into customers.
+      </p>
+      <div class="hero__actions">
+        <a href="#packages" class="btn btn--primary btn--lg">See Packages</a>
+        <a href="#work" class="btn btn--ghost btn--lg">View Our Work →</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num">120+</span>
+          <span class="stat__label">Projects Launched</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">3.8×</span>
+          <span class="stat__label">Avg. Conversion Lift</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num">48h</span>
+          <span class="stat__label">Avg. First Draft</span>
+        </div>
+      </div>
+    </div>
+    <!-- Floating UI Preview Card -->
+    <div class="hero__preview">
+      <div class="preview-card">
+        <div class="preview-card__bar">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+          <span class="preview-card__url">kolab.studio/your-page</span>
+        </div>
+        <div class="preview-card__body">
+          <div class="preview-line preview-line--hero"></div>
+          <div class="preview-line preview-line--sub"></div>
+          <div class="preview-line preview-line--sub preview-line--short"></div>
+          <div class="preview-line preview-line--btn"></div>
+          <div class="preview-metrics">
+            <div class="preview-metric">
+              <div class="preview-metric__val">98</div>
+              <div class="preview-metric__label">Performance</div>
+            </div>
+            <div class="preview-metric">
+              <div class="preview-metric__val">100</div>
+              <div class="preview-metric__label">SEO</div>
+            </div>
+            <div class="preview-metric">
+              <div class="preview-metric__val">94</div>
+              <div class="preview-metric__label">Accessibility</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MARQUEE ========== -->
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span>Landing Pages</span><span class="sep">✦</span>
+      <span>SEO Optimization</span><span class="sep">✦</span>
+      <span>Digital Products</span><span class="sep">✦</span>
+      <span>Web Apps</span><span class="sep">✦</span>
+      <span>Brand Identity</span><span class="sep">✦</span>
+      <span>CRO Audits</span><span class="sep">✦</span>
+      <span>Speed Optimization</span><span class="sep">✦</span>
+      <span>E-commerce</span><span class="sep">✦</span>
+      <span>Landing Pages</span><span class="sep">✦</span>
+      <span>SEO Optimization</span><span class="sep">✦</span>
+      <span>Digital Products</span><span class="sep">✦</span>
+      <span>Web Apps</span><span class="sep">✦</span>
+      <span>Brand Identity</span><span class="sep">✦</span>
+      <span>CRO Audits</span><span class="sep">✦</span>
+      <span>Speed Optimization</span><span class="sep">✦</span>
+      <span>E-commerce</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">What We Do</div>
+        <h2 class="section-title">Everything your digital<br/>presence needs</h2>
+        <p class="section-sub">From a single high-converting page to a full digital product — we handle design, development, and optimization end-to-end.</p>
+      </div>
+      <div class="services__grid">
+        <div class="service-card service-card--featured">
+          <div class="service-card__icon">⚡</div>
+          <h3>Landing Pages</h3>
+          <p>Pixel-perfect, blazing-fast pages built to convert. Every element is intentional — from headline hierarchy to CTA placement.</p>
+          <ul class="service-card__list">
+            <li>CRO-focused layout</li>
+            <li>Mobile-first design</li>
+            <li>A/B test ready</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">🎯</div>
+          <h3>SEO & Page Speed</h3>
+          <p>We optimize your pages to rank higher and load faster — Core Web Vitals, technical SEO, and structured data included.</p>
+          <ul class="service-card__list">
+            <li>Core Web Vitals 90+</li>
+            <li>On-page SEO setup</li>
+            <li>Structured data markup</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">🛠️</div>
+          <h3>Digital Products</h3>
+          <p>Productized tools, SaaS pages, micro-apps, and interactive experiences built for real users.</p>
+          <ul class="service-card__list">
+            <li>SaaS landing pages</li>
+            <li>Interactive demos</li>
+            <li>Web app MVPs</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">🎨</div>
+          <h3>Brand & Web Design</h3>
+          <p>Cohesive visual identity systems paired with clean, modern web design that communicates trust instantly.</p>
+          <ul class="service-card__list">
+            <li>Logo & identity</li>
+            <li>Design system</li>
+            <li>UI/UX prototypes</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-card__icon">🔄</div>
+          <h3>Page Optimization</h3>
+          <p>Got an existing site? We audit and rebuild what's holding you back — speed, design, copy, conversions.</p>
+          <ul class="service-card__list">
+            <li>Full site audit</li>
+            <li>Funnel optimization</li>
+            <li>Redesign & rebuild</li>
+          </ul>
+        </div>
+        <div class="service-card service-card--cta">
+          <div class="service-card__icon">💬</div>
+          <h3>Not sure which?</h3>
+          <p>Tell us about your project and we'll recommend the right approach.</p>
+          <a href="#contact" class="btn btn--primary">Get a Free Audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PACKAGES ========== -->
+  <section class="section packages" id="packages">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Pricing</div>
+        <h2 class="section-title">Simple packages,<br/>serious results</h2>
+        <p class="section-sub">No hourly rates, no surprises. Pick a package and we get to work.</p>
+      </div>
+      <div class="packages__grid">
+        <!-- Starter -->
+        <div class="package-card">
+          <div class="package-card__header">
+            <span class="package-card__tier">Starter</span>
+            <div class="package-card__price"><span class="price-num">$799</span><span class="price-period">/project</span></div>
+          </div>
+          <p class="package-card__desc">Perfect for founders and solo brands who need a professional online presence fast.</p>
+          <ul class="package-card__features">
+            <li><span class="check">✓</span> 1-page landing site</li>
+            <li><span class="check">✓</span> Mobile responsive</li>
+            <li><span class="check">✓</span> Basic SEO setup</li>
+            <li><span class="check">✓</span> Contact form integration</li>
+            <li><span class="check">✓</span> 48h first draft</li>
+            <li class="faded"><span>✗</span> CRO optimization</li>
+            <li class="faded"><span>✗</span> Analytics dashboard</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--full">Get Started</a>
+        </div>
+        <!-- Growth (featured) -->
+        <div class="package-card package-card--featured">
+          <div class="package-card__badge">Most Popular</div>
+          <div class="package-card__header">
+            <span class="package-card__tier">Growth</span>
+            <div class="package-card__price"><span class="price-num">$1,999</span><span class="price-period">/project</span></div>
+          </div>
+          <p class="package-card__desc">For growing businesses that need a page built to rank, convert, and scale.</p>
+          <ul class="package-card__features">
+            <li><span class="check">✓</span> Up to 5 pages</li>
+            <li><span class="check">✓</span> CRO-optimized layout</li>
+            <li><span class="check">✓</span> Full SEO setup</li>
+            <li><span class="check">✓</span> Speed optimization (90+ score)</li>
+            <li><span class="check">✓</span> Analytics & heatmap setup</li>
+            <li><span class="check">✓</span> 2 revision rounds</li>
+            <li><span class="check">✓</span> 30-day post-launch support</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary btn--full">Get Started</a>
+        </div>
+        <!-- Scale -->
+        <div class="package-card">
+          <div class="package-card__header">
+            <span class="package-card__tier">Scale</span>
+            <div class="package-card__price"><span class="price-num">Custom</span></div>
+          </div>
+          <p class="package-card__desc">Full-stack digital partner for teams building ambitious web products.</p>
+          <ul class="package-card__features">
+            <li><span class="check">✓</span> Unlimited pages</li>
+            <li><span class="check">✓</span> Digital product / web app</li>
+            <li><span class="check">✓</span> Brand identity system</li>
+            <li><span class="check">✓</span> Custom integrations</li>
+            <li><span class="check">✓</span> Ongoing retainer available</li>
+            <li><span class="check">✓</span> Dedicated project manager</li>
+            <li><span class="check">✓</span> Priority turnaround</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--full">Let's Talk</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESS ========== -->
+  <section class="section process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">How It Works</div>
+        <h2 class="section-title">From idea to live<br/>in days, not months</h2>
+      </div>
+      <div class="process__steps">
+        <div class="process-step">
+          <div class="process-step__num">01</div>
+          <div class="process-step__content">
+            <h3>Discovery Call</h3>
+            <p>We learn about your business, goals, and target audience. You leave with a clear scope and timeline.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">02</div>
+          <div class="process-step__content">
+            <h3>Strategy & Design</h3>
+            <p>We map out the page structure, craft the messaging hierarchy, and produce a high-fidelity design in Figma.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">03</div>
+          <div class="process-step__content">
+            <h3>Build & Optimize</h3>
+            <p>Clean, semantic code. Performance tuned. SEO-ready. We build it right the first time.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">04</div>
+          <div class="process-step__content">
+            <h3>Launch & Iterate</h3>
+            <p>We deploy, monitor, and refine. Post-launch support ensures your page keeps performing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WORK / PORTFOLIO ========== -->
+  <section class="section work" id="work">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Portfolio</div>
+        <h2 class="section-title">Pages we're proud of</h2>
+        <p class="section-sub">A sample of recent client work across industries.</p>
+      </div>
+      <div class="work__grid">
+        <div class="work-card work-card--wide">
+          <div class="work-card__img work-card__img--1">
+            <div class="work-card__overlay">
+              <span class="work-card__tag">SaaS Landing Page</span>
+              <h4>Taskflow — Productivity App</h4>
+              <p>Full rebrand + landing page. 2.4× signup increase.</p>
+            </div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-card__img work-card__img--2">
+            <div class="work-card__overlay">
+              <span class="work-card__tag">E-commerce</span>
+              <h4>Lumē Skincare</h4>
+              <p>Product page redesign. +61% add-to-cart rate.</p>
+            </div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-card__img work-card__img--3">
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Agency Site</span>
+              <h4>Northpoint Consulting</h4>
+              <p>5-page site built in 6 days. 98 Lighthouse score.</p>
+            </div>
+          </div>
+        </div>
+        <div class="work-card work-card--wide">
+          <div class="work-card__img work-card__img--4">
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Digital Product</span>
+              <h4>LearnLoop — Ed-Tech Platform</h4>
+              <p>MVP web app with custom onboarding flow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">What Clients Say</div>
+        <h2 class="section-title">Don't take our word for it</h2>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p>"Kolab delivered our landing page in under 4 days. The conversion rate jumped from 2.1% to 7.8% within two weeks of launch."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar author-avatar--a">MK</div>
+            <div>
+              <strong>Marcus K.</strong>
+              <span>Founder, Taskflow</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p>"They understood our brand instantly. The design was stunning and the Lighthouse score hit 98 on the first build."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar author-avatar--b">SL</div>
+            <div>
+              <strong>Sofia L.</strong>
+              <span>CEO, Lumē Skincare</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p>"Fast, communicative, and the result exceeded expectations. We've already booked our second project with Kolab."</p>
+          <div class="testimonial-card__author">
+            <div class="author-avatar author-avatar--c">TR</div>
+            <div>
+              <strong>Tom R.</strong>
+              <span>Northpoint Consulting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner">
+    <div class="cta-banner__glow"></div>
+    <div class="container cta-banner__inner">
+      <h2>Ready to build something great?</h2>
+      <p>Let's talk about your project. First consultation is free.</p>
+      <a href="#contact" class="btn btn--primary btn--lg">Start Your Project</a>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__left">
+        <div class="section-badge">Contact</div>
+        <h2 class="section-title">Let's build<br/>your next page</h2>
+        <p>Fill in the form and we'll get back to you within 24 hours with a proposal tailored to your goals.</p>
+        <div class="contact__info">
+          <a href="mailto:hello@kolab.studio">✉ hello@kolab.studio</a>
+        </div>
+      </div>
+      <form class="contact__form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Alex Johnson" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="alex@company.com" required />
+        </div>
+        <div class="form-group">
+          <label for="service">Service Needed</label>
+          <select id="service" name="service">
+            <option value="">Select a service...</option>
+            <option>Landing Page</option>
+            <option>Page Optimization</option>
+            <option>Digital Product</option>
+            <option>Full Web Build</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell us about your project</label>
+          <textarea id="message" name="message" rows="4" placeholder="Brief description of your project, goals, and timeline..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Send Message →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <a href="#" class="nav__logo">kolab<span>.</span></a>
+        <p>Crafting digital experiences that convert.</p>
+      </div>
+      <div class="footer__links">
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#process">Process</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© 2026 Kolab Web Studio. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
