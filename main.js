@@ -10,7 +10,6 @@ function applyTheme(theme) {
   localStorage.setItem('ws-theme', theme);
   const btn = document.getElementById('themeToggle');
   if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
-  // Update nav scroll bg
   if (nav) {
     nav.style.background = window.scrollY > 40
       ? (theme === 'dark' ? 'rgba(8,9,13,0.97)' : 'rgba(255,255,255,0.98)')
@@ -27,7 +26,7 @@ window.addEventListener('scroll', () => {
     : (theme === 'dark' ? 'rgba(8,9,13,0.8)'  : 'rgba(255,255,255,0.85)');
 });
 
-// ── Mobile menu (burger animation + smooth reveal) ──
+// ── Mobile menu ──
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
 burger.addEventListener('click', () => {
@@ -44,7 +43,6 @@ mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => 
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('themeToggle');
   if (!btn) return;
-  // Set correct icon on load
   btn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
   btn.addEventListener('click', () => {
     const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -60,7 +58,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ── Aceternity: Mouse spotlight on hero ──
+// ── STEP 1: Hero spotlight + particles ──
 const hero = document.querySelector('.hero');
 const spotlight = document.querySelector('.hero__spotlight');
 if (hero && spotlight) {
@@ -73,80 +71,103 @@ if (hero && spotlight) {
   });
 }
 
-// ── Aceternity: Floating particles (theme-aware colours) ──
+// Hero headline glitch on load
+window.addEventListener('load', () => {
+  const hl = document.querySelector('.hero__headline');
+  if (hl) { hl.classList.add('glitch'); setTimeout(() => hl.classList.remove('glitch'), 2000); }
+});
+
+// Particles (theme-aware)
 (function initParticles() {
   const canvas = document.getElementById('hero-particles');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, particles;
-
   function getColors() {
-    const theme = document.documentElement.getAttribute('data-theme');
-    return theme === 'light'
-      ? ['91,82,240', '124,111,247']
-      : ['108,99,255', '167,139,250'];
+    return html.getAttribute('data-theme') === 'light'
+      ? ['91,82,240','124,111,247']
+      : ['108,99,255','167,139,250'];
   }
-
-  function resize() {
-    W = canvas.width = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  function rand(min, max) { return Math.random() * (max - min) + min; }
-
+  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+  window.addEventListener('resize', resize); resize();
+  function rand(a,b) { return Math.random()*(b-a)+a; }
   function makeParticle() {
-    const colors = getColors();
-    return {
-      x: rand(0, W), y: rand(0, H),
-      r: rand(1, 2.5),
-      vx: rand(-0.15, 0.15), vy: rand(-0.25, -0.05),
-      alpha: rand(0.2, 0.7),
-      color: colors[Math.random() > 0.5 ? 0 : 1]
-    };
+    const c = getColors();
+    return { x:rand(0,W), y:rand(0,H), r:rand(1,2.5), vx:rand(-0.15,0.15), vy:rand(-0.25,-0.05), alpha:rand(0.2,0.7), color:c[Math.random()>.5?0:1] };
   }
-
-  particles = Array.from({ length: 72 }, makeParticle);
-
+  particles = Array.from({length:72},makeParticle);
   function tick() {
-    ctx.clearRect(0, 0, W, H);
-    const colors = getColors();
+    ctx.clearRect(0,0,W,H);
+    const c = getColors();
     particles.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.y < -4) { p.y = H + 4; p.x = rand(0, W); p.color = colors[Math.random() > 0.5 ? 0 : 1]; }
-      if (p.x < -4 || p.x > W + 4) p.x = rand(0, W);
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
-      ctx.fill();
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.y<-4){p.y=H+4;p.x=rand(0,W);p.color=c[Math.random()>.5?0:1];}
+      if(p.x<-4||p.x>W+4)p.x=rand(0,W);
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${p.color},${p.alpha})`; ctx.fill();
     });
     requestAnimationFrame(tick);
   }
   tick();
 })();
 
-// ── Aceternity: Typewriter cycling headline word ──
+// ── Typewriter ──
 (function initTypewriter() {
   const el = document.querySelector('.hero__typewriter');
   if (!el) return;
-  const words = ['Profesionāla', 'Moderna', 'Ātra', 'Efektīva'];
-  let wi = 0, ci = 0, deleting = false;
-
+  const words = ['Profesionāla','Moderna','Ātra','Efektīva'];
+  let wi=0,ci=0,deleting=false;
   function type() {
-    const word = words[wi];
-    if (!deleting) {
-      el.textContent = word.slice(0, ++ci);
-      if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
-      setTimeout(type, 68);
-    } else {
-      el.textContent = word.slice(0, --ci);
-      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(type, 300); return; }
-      setTimeout(type, 38);
-    }
+    const word=words[wi];
+    if(!deleting){el.textContent=word.slice(0,++ci);if(ci===word.length){deleting=true;setTimeout(type,1800);return;}setTimeout(type,68);}
+    else{el.textContent=word.slice(0,--ci);if(ci===0){deleting=false;wi=(wi+1)%words.length;setTimeout(type,300);return;}setTimeout(type,38);}
   }
   type();
 })();
+
+// ── STEP 2: Services — 3D card tilt ──
+const isTouchDevice = window.matchMedia('(hover:none)').matches;
+if (!isTouchDevice) {
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width  - 0.5;
+      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      card.style.transform = `perspective(600px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+// ── STEP 3: Packages — per-card spotlight ──
+if (!isTouchDevice) {
+  document.querySelectorAll('.package-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width)  * 100;
+      const y = ((e.clientY - rect.top)  / rect.height) * 100;
+      card.style.setProperty('--cx', x + '%');
+      card.style.setProperty('--cy', y + '%');
+    });
+  });
+}
+
+// ── STEP 4: Portfolio — magnetic hover ──
+if (!isTouchDevice) {
+  document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width  / 2) * 0.06;
+      const y = (e.clientY - rect.top  - rect.height / 2) * 0.06;
+      card.style.transform = `translate(${x}px,${y}px) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
 
 // ── Portfolio filter ──
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -164,60 +185,49 @@ filterBtns.forEach(btn => {
 
 // ── Scroll fade-in ──
 const fadeStyle = document.createElement('style');
-fadeStyle.textContent = '.visible { opacity: 1 !important; transform: translateY(0) !important; }';
+fadeStyle.textContent = '.visible{opacity:1!important;transform:translateY(0)!important;}';
 document.head.appendChild(fadeStyle);
-
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.service-card, .package-card, .work-card').forEach((el, i) => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(24px)';
-  el.style.transition = `opacity 0.5s ease ${i * 0.05}s, transform 0.5s ease ${i * 0.05}s`;
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);} });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.service-card,.package-card,.work-card').forEach((el,i)=>{
+  el.style.opacity='0'; el.style.transform='translateY(24px)';
+  el.style.transition=`opacity 0.5s ease ${i*0.05}s,transform 0.5s ease ${i*0.05}s`;
   io.observe(el);
 });
 
-// ── Hero stats counter animation ──
-function animateCounter(el, target, suffix = '') {
-  const duration = 1400, start = performance.now();
-  const update = (time) => {
-    const p = Math.min((time - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(eased * parseFloat(target)) + suffix;
-    if (p < 1) requestAnimationFrame(update);
+// ── Stats counter ──
+function animateCounter(el,target,suffix=''){
+  const duration=1400,start=performance.now();
+  const update=time=>{
+    const p=Math.min((time-start)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=Math.round(eased*parseFloat(target))+suffix;
+    if(p<1)requestAnimationFrame(update);
   };
   requestAnimationFrame(update);
 }
-
-const sio = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const nums = e.target.querySelectorAll('.stat__num');
-      [{ val: 15, s: '+' }, { val: 48, s: 'h' }, { val: 100, s: '%' }].forEach(({ val, s }, i) => {
-        if (nums[i]) animateCounter(nums[i], val, s);
-      });
+const sio = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const nums=e.target.querySelectorAll('.stat__num');
+      [{val:15,s:'+'},{val:48,s:'h'},{val:100,s:'%'}].forEach(({val,s},i)=>{if(nums[i])animateCounter(nums[i],val,s);});
       sio.unobserve(e.target);
     }
   });
-}, { threshold: 0.5 });
-const heroStats = document.querySelector('.hero__stats');
-if (heroStats) sio.observe(heroStats);
+},{threshold:0.5});
+const heroStats=document.querySelector('.hero__stats');
+if(heroStats)sio.observe(heroStats);
 
 // ── Contact form ──
 const form = document.getElementById('contactForm');
-if (form) {
-  form.addEventListener('submit', e => {
+if(form){
+  form.addEventListener('submit',e=>{
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = '✓ Nosūtīts!';
-    btn.style.cssText = 'background:#10b981;border-color:#10b981';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Nosūtīt →';
-      btn.style.cssText = '';
-      btn.disabled = false;
-      form.reset();
-    }, 3000);
+    const btn=form.querySelector('button[type="submit"]');
+    btn.textContent='✓ Nosūtīts!';
+    btn.style.cssText='background:#10b981;border-color:#10b981';
+    btn.disabled=true;
+    setTimeout(()=>{ btn.textContent='Nosūtīt →'; btn.style.cssText=''; btn.disabled=false; form.reset(); },3000);
   });
 }
