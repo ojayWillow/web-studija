@@ -88,9 +88,9 @@ if (form) {
   form.addEventListener('submit', e => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = '✓ Message Sent!';
+    btn.textContent = '✓ Ziņojums nosūtīts!';
     btn.style.cssText = 'background:#10b981;border-color:#10b981';
     btn.disabled = true;
-    setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.cssText = ''; btn.disabled = false; form.reset(); }, 3000);
+    setTimeout(() => { btn.textContent = 'Nosūtīt ziņojumu →'; btn.style.cssText = ''; btn.disabled = false; form.reset(); }, 3000);
   });
 }
