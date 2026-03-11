@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Prevent flash of wrong theme -->
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('ws-theme') || 'dark');</script>
 </head>
 <body>
 
@@ -22,7 +24,10 @@
         <a href="#work">Darbi</a>
         <a href="#contact">Kontakts</a>
       </nav>
-      <a href="#contact" class="btn btn--primary nav__cta">Sākt projektu</a>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Mainīt tēmu">☀️</button>
+        <a href="#contact" class="btn btn--primary nav__cta">Sākt projektu</a>
+      </div>
       <button class="nav__burger" id="burger" aria-label="Atvērt izvēlni" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -39,7 +44,6 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <!-- Aceternity: background layers -->
     <div class="hero__bg-grid"></div>
     <canvas id="hero-particles"></canvas>
     <div class="hero__spotlight"></div>
@@ -49,7 +53,6 @@
     <div class="container">
       <div class="hero__inner">
 
-        <!-- LEFT: text -->
         <div class="hero__left">
           <div class="hero__badge">✦ Mājas lapas Latvijas uzņēmumiem</div>
           <h1 class="hero__headline">
@@ -74,7 +77,6 @@
           </div>
         </div>
 
-        <!-- RIGHT: glowing floating preview card -->
         <div class="hero__right">
           <div class="preview-card-wrap">
             <div class="preview-card">
