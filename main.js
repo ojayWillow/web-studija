@@ -1,6 +1,4 @@
-// =============================================
 // KOLAB WEB STUDIO — MAIN JS
-// =============================================
 
 // Nav scroll effect
 const nav = document.getElementById('nav');
@@ -26,8 +24,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 const filterBtns = document.querySelectorAll('.filter-btn');
 const workCards  = document.querySelectorAll('.work__grid .work-card');
 
-workCards.forEach(c => { if (c.classList.contains('work-card--wide')) c.dataset.wide = 'true'; });
-
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('filter-btn--active'));
@@ -36,8 +32,6 @@ filterBtns.forEach(btn => {
     workCards.forEach(card => {
       const match = filter === 'all' || card.dataset.category === filter;
       card.classList.toggle('hidden', !match);
-      if (filter !== 'all') card.classList.remove('work-card--wide');
-      else if (card.dataset.wide) card.classList.add('work-card--wide');
     });
   });
 });
@@ -51,34 +45,41 @@ const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.service-card, .package-card, .process-step, .work-card, .testimonial-card').forEach((el, i) => {
+document.querySelectorAll('.service-card, .package-card, .work-card').forEach((el, i) => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(24px)';
   el.style.transition = `opacity 0.5s ease ${i * 0.05}s, transform 0.5s ease ${i * 0.05}s`;
   io.observe(el);
 });
 
-// Counter animation
+// Hero stats counter animation
 function animateCounter(el, target, suffix = '') {
-  const duration = 1600, start = performance.now();
+  const duration = 1400, start = performance.now();
   const isDecimal = target.toString().includes('.');
   const update = (time) => {
     const p = Math.min((time - start) / duration, 1);
     const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = (isDecimal ? (eased * parseFloat(target)).toFixed(1) : Math.round(eased * parseFloat(target))) + suffix;
+    el.textContent = (isDecimal
+      ? (eased * parseFloat(target)).toFixed(1)
+      : Math.round(eased * parseFloat(target))) + suffix;
     if (p < 1) requestAnimationFrame(update);
   };
   requestAnimationFrame(update);
 }
+
 const sio = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       const nums = e.target.querySelectorAll('.stat__num');
-      [{ val: 120, s: '+' }, { val: 3.8, s: '×' }, { val: 48, s: 'h' }].forEach(({ val, s }, i) => { if (nums[i]) animateCounter(nums[i], val, s); });
+      // Values: 15+, 48h, 100%
+      [{ val: 15, s: '+' }, { val: 48, s: 'h' }, { val: 100, s: '%' }].forEach(({ val, s }, i) => {
+        if (nums[i]) animateCounter(nums[i], val, s);
+      });
       sio.unobserve(e.target);
     }
   });
 }, { threshold: 0.5 });
+
 const heroStats = document.querySelector('.hero__stats');
 if (heroStats) sio.observe(heroStats);
 
@@ -88,9 +89,14 @@ if (form) {
   form.addEventListener('submit', e => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = '✓ Ziņojums nosūtīts!';
+    btn.textContent = '✓ Nosūtīts!';
     btn.style.cssText = 'background:#10b981;border-color:#10b981';
     btn.disabled = true;
-    setTimeout(() => { btn.textContent = 'Nosūtīt ziņojumu →'; btn.style.cssText = ''; btn.disabled = false; form.reset(); }, 3000);
+    setTimeout(() => {
+      btn.textContent = 'Nosūtīt →';
+      btn.style.cssText = '';
+      btn.disabled = false;
+      form.reset();
+    }, 3000);
   });
 }
