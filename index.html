@@ -99,11 +99,108 @@
   }
   </script>
 
+  <!-- Google Analytics 4 — loads only after cookie consent -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied'
+    });
+
+    function loadGA4() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-0PKWM0L1X3';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-0PKWM0L1X3');
+    }
+
+    function initAnalytics() {
+      if (localStorage.getItem('vd-cookie-consent') === 'accepted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        loadGA4();
+      }
+    }
+
+    initAnalytics();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('vd-theme') || 'dark');</script>
+
+  <style>
+    /* Cookie Consent Banner */
+    #cookie-banner {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+      max-width: 700px;
+      background: #1a1a2e;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      z-index: 99999;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+      animation: slideUp 0.4s ease;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    #cookie-banner p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      flex: 1;
+      line-height: 1.5;
+    }
+    #cookie-banner p a {
+      color: #a78bfa;
+      text-decoration: underline;
+    }
+    .cookie-banner__actions {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    #cookie-accept {
+      background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    #cookie-decline {
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    #cookie-decline:hover { color: rgba(255,255,255,0.8); }
+    @media (max-width: 560px) {
+      #cookie-banner { flex-direction: column; align-items: flex-start; bottom: 16px; }
+      .cookie-banner__actions { width: 100%; }
+      #cookie-accept, #cookie-decline { flex: 1; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -482,6 +579,43 @@
     <span class="whatsapp-float__tooltip">Rakstīt WhatsApp</span>
   </a>
 
+  <!-- COOKIE CONSENT BANNER -->
+  <div id="cookie-banner" role="dialog" aria-label="Sīkdatņu piekrišana" style="display:none;">
+    <p>
+      Mēs izmantojam <strong>Google Analytics</strong> sīkdatnes, lai uzlabotu lietotāja pieredzi un analizētu vietnes apmeklējumu.
+      Jūsu dati tiek apstrādāti saskaņā ar <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privātuma politiku</a>.
+    </p>
+    <div class="cookie-banner__actions">
+      <button id="cookie-accept">Piekrītu</button>
+      <button id="cookie-decline">Noraidīt</button>
+    </div>
+  </div>
+
   <script src="main.js"></script>
+
+  <script>
+    // Cookie consent logic
+    (function() {
+      var banner = document.getElementById('cookie-banner');
+      var consent = localStorage.getItem('vd-cookie-consent');
+
+      if (!consent) {
+        banner.style.display = 'flex';
+      }
+
+      document.getElementById('cookie-accept').addEventListener('click', function() {
+        localStorage.setItem('vd-cookie-consent', 'accepted');
+        banner.style.display = 'none';
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        loadGA4();
+      });
+
+      document.getElementById('cookie-decline').addEventListener('click', function() {
+        localStorage.setItem('vd-cookie-consent', 'declined');
+        banner.style.display = 'none';
+      });
+    })();
+  </script>
+
 </body>
 </html>
