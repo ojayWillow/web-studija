@@ -45,10 +45,16 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["ProfessionalService", "Organization"],
     "name": "Vdigital",
     "url": "https://vdigital.lv/",
-    "logo": "https://vdigital.lv/logo.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://vdigital.lv/logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "image": "https://vdigital.lv/logo.png",
     "description": "Mājas lapas Latvijas uzņēmumiem — izstrāde un uzturēšana par fiksētu ikmēneša maksu. Mobilais dizains, SEO optimizācija, hostings iekļauts.",
     "priceRange": "€€",
     "areaServed": {
