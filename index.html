@@ -157,16 +157,24 @@
       from { opacity: 0; transform: translateX(-50%) translateY(20px); }
       to   { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
-    #cookie-banner p {
-      margin: 0;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      flex: 1;
-      line-height: 1.5;
+    #cookie-banner .cookie-banner__icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
     }
-    #cookie-banner p a {
-      color: #a78bfa;
-      text-decoration: underline;
+    #cookie-banner .cookie-banner__text {
+      flex: 1;
+    }
+    #cookie-banner .cookie-banner__text strong {
+      display: block;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 4px;
+    }
+    #cookie-banner .cookie-banner__text p {
+      margin: 0;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
     }
     .cookie-banner__actions {
       display: flex;
@@ -581,13 +589,14 @@
 
   <!-- COOKIE CONSENT BANNER -->
   <div id="cookie-banner" role="dialog" aria-label="Sīkdatņu piekrišana" style="display:none;">
-    <p>
-      Mēs izmantojam <strong>Google Analytics</strong> sīkdatnes, lai uzlabotu lietotāja pieredzi un analizētu vietnes apmeklējumu.
-      Jūsu dati tiek apstrādāti saskaņā ar <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google privātuma politiku</a>.
-    </p>
+    <div class="cookie-banner__icon">📊</div>
+    <div class="cookie-banner__text">
+      <strong>Vai mēs varētu sekot jūsu apmeklējumam?</strong>
+      <p>Mēs izmantojam anonimizētus statistikas datus, lai zinātu, cik cilvvēku apmeklē šo lapu un no kurienes viņi nāk. Tas palīdz mums uzlabot mūsu pakalpojumus. Neko personisku mēs nesaglābājam.</p>
+    </div>
     <div class="cookie-banner__actions">
-      <button id="cookie-accept">Piekrītu</button>
-      <button id="cookie-decline">Noraidīt</button>
+      <button id="cookie-accept">Jā, labi! 👍</button>
+      <button id="cookie-decline">Nē, pateicoties</button>
     </div>
   </div>
 
