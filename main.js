@@ -1,13 +1,13 @@
-// WEB STUDIJA — MAIN JS
+// VDIGITAL — MAIN JS
 
 // ── Theme toggle (runs FIRST to prevent flash) ──
 const html = document.documentElement;
-const savedTheme = localStorage.getItem('ws-theme') || 'dark';
+const savedTheme = localStorage.getItem('vd-theme') || 'dark';
 html.setAttribute('data-theme', savedTheme);
 
 function applyTheme(theme) {
   html.setAttribute('data-theme', theme);
-  localStorage.setItem('ws-theme', theme);
+  localStorage.setItem('vd-theme', theme);
   const btn = document.getElementById('themeToggle');
   if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
   if (nav) {
@@ -239,15 +239,43 @@ const sio = new IntersectionObserver(entries=>{
 const heroStats=document.querySelector('.hero__stats');
 if(heroStats)sio.observe(heroStats);
 
-// ── Contact form ──
+// ── Contact form — real Formspree submission ──
 const form = document.getElementById('contactForm');
-if(form){
-  form.addEventListener('submit',e=>{
+if (form) {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const btn=form.querySelector('button[type="submit"]');
-    btn.textContent='✓ Nosūtīts!';
-    btn.style.cssText='background:#10b981;border-color:#10b981';
-    btn.disabled=true;
-    setTimeout(()=>{ btn.textContent='Nosūtīt →'; btn.style.cssText=''; btn.disabled=false; form.reset(); },3000);
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sūta...';
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        btn.textContent = '✓ Nosūtīts!';
+        btn.style.cssText = 'background:#10b981;border-color:#10b981';
+        form.reset();
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.cssText = '';
+          btn.disabled = false;
+        }, 4000);
+      } else {
+        throw new Error('Servera kļūda');
+      }
+    } catch (err) {
+      btn.textContent = '✗ Kļūda — mēģiniet vēlreiz';
+      btn.style.cssText = 'background:#ef4444;border-color:#ef4444';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.cssText = '';
+        btn.disabled = false;
+      }, 3000);
+    }
   });
 }

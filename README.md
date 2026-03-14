@@ -1,2 +1,2 @@
-# kolab-web-studio
-Kolab Web Studio — standalone landing page showcasing web packages with live previews
+# Vdigital
+Vdigital — professional website agency for Latvian businesses. Standalone landing page with live portfolio previews, pricing packages, contact form, dark/light theme, and GA4 analytics.
