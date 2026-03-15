@@ -4,210 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kāpēc jūsu uzņēmumam vajag mājas lapu? | Vdigital</title>
-  <meta name="description" content="Uzziniet, kā profesionāla mājas lapa palīdz piesaistīt klientus, stiprināt uzticamību un palielināt ieņēmumus. Fakti un padomi Latvijas uzņēmumiem." />
+  <meta name="description" content="Uzziniet, kā profesionāla mājas lapa palīdz piesaistīt klientus, stiprināt uzticāmību un palietināt ieņēmumus. Fakti un padomi Latvijas uzņēmumiem." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://vdigital.lv/kapec-mais-lapa" />
   <link rel="icon" href="/favicon.png" type="image/png" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://vdigital.lv/kapec-mais-lapa" />
   <meta property="og:title" content="Kāpēc jūsu uzņēmumam vajag mājas lapu? | Vdigital" />
-  <meta property="og:description" content="Uzziniet, kā profesionāla mājas lapa palīdz piesaistīt klientus, stiprināt uzticamību un palielināt ieņēmumus." />
+  <meta property="og:description" content="Uzziniet, kā profesionāla mājas lapa palīdz piesaistīt klientus, stiprināt uzticāmību un palietināt ieņēmumus." />
   <meta property="og:image" content="https://vdigital.lv/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/utilities.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Page-specific CSS -->
+  <link rel="stylesheet" href="css/kapec-mais-lapa.css" />
+
   <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('vd-theme') || 'dark');</script>
-  <style>
-    .info-hero {
-      padding: 140px 0 80px;
-      background: var(--bg);
-      position: relative;
-      overflow: hidden;
-    }
-    .info-hero__bg-grid {
-      position: absolute; inset: 0;
-      background-image: linear-gradient(var(--hero-grid-color) 1px,transparent 1px),
-                        linear-gradient(90deg,var(--hero-grid-color) 1px,transparent 1px);
-      background-size: 60px 60px; pointer-events: none; z-index: 0;
-    }
-    .info-hero__glow {
-      position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none;
-      width: 500px; height: 500px; background: var(--accent);
-      top: -180px; right: -100px; opacity: 0.1; z-index: 0;
-    }
-    .info-hero__inner {
-      position: relative; z-index: 1;
-      max-width: 760px; margin: 0 auto; text-align: center;
-    }
-    .info-hero__inner h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4.5vw, 3.4rem);
-      font-weight: 800; line-height: 1.15;
-      letter-spacing: -0.03em; color: var(--text);
-      margin-bottom: 20px;
-    }
-    .info-hero__inner h1 span {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .info-hero__inner p {
-      color: var(--text-muted); font-size: 1.1rem; line-height: 1.75;
-      max-width: 620px; margin: 0 auto 32px;
-    }
-    .info-hero__meta {
-      display: flex; align-items: center; justify-content: center; gap: 24px;
-      font-size: 0.82rem; color: var(--text-dim);
-      border-top: 1px solid var(--border); padding-top: 24px; margin-top: 8px;
-    }
-    .info-hero__meta span { display: flex; align-items: center; gap: 6px; }
-
-    /* Article body */
-    .article {
-      max-width: 760px; margin: 0 auto;
-      padding: 0 24px 100px;
-    }
-    .article h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 700; color: var(--text);
-      margin: 64px 0 16px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .article h2 .h2-icon {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 40px; height: 40px; border-radius: 10px; font-size: 1.1rem; flex-shrink: 0;
-      background: rgba(108,99,255,0.12); border: 1px solid rgba(108,99,255,0.2);
-    }
-    .article p {
-      color: var(--text-muted); font-size: 1rem; line-height: 1.8;
-      margin-bottom: 16px;
-    }
-    .article strong { color: var(--text); }
-
-    /* Stat boxes */
-    .stat-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
-      margin: 32px 0;
-    }
-    .stat-box {
-      background: var(--bg-2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px 20px; text-align: center;
-    }
-    .stat-box__num {
-      font-family: var(--font-display); font-size: 2.2rem; font-weight: 800;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      display: block; line-height: 1.1;
-    }
-    .stat-box__label {
-      display: block; font-size: 0.82rem; color: var(--text-muted);
-      margin-top: 8px; line-height: 1.4;
-    }
-
-    /* Benefit cards */
-    .benefit-list {
-      display: flex; flex-direction: column; gap: 16px; margin: 24px 0;
-    }
-    .benefit-item {
-      display: flex; gap: 16px; align-items: flex-start;
-      background: var(--bg-2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-    .benefit-item:hover { border-color: rgba(108,99,255,0.3); transform: translateX(4px); }
-    .benefit-item__icon {
-      font-size: 1.6rem; flex-shrink: 0; width: 48px; height: 48px;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(108,99,255,0.1); border-radius: 12px;
-    }
-    .benefit-item__body h3 {
-      font-family: var(--font-display); font-size: 1rem; font-weight: 600;
-      color: var(--text); margin-bottom: 6px;
-    }
-    .benefit-item__body p {
-      font-size: 0.9rem; color: var(--text-muted);
-      line-height: 1.65; margin: 0;
-    }
-
-    /* Compare table */
-    .compare-table {
-      width: 100%; border-collapse: collapse; margin: 24px 0;
-      font-size: 0.92rem;
-    }
-    .compare-table th {
-      font-family: var(--font-display); font-size: 0.78rem;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text-muted); padding: 12px 16px;
-      border-bottom: 1px solid var(--border); text-align: left;
-    }
-    .compare-table td {
-      padding: 14px 16px; border-bottom: 1px solid var(--border);
-      color: var(--text-muted); vertical-align: top;
-    }
-    .compare-table tr:last-child td { border-bottom: none; }
-    .compare-table td:first-child { color: var(--text); font-weight: 500; }
-    .compare-table .yes { color: #16a34a; font-weight: 600; }
-    .compare-table .no  { color: #dc2626; }
-    .compare-table thead tr { background: var(--bg-2); }
-    .compare-table tbody tr:hover td { background: rgba(108,99,255,0.04); }
-
-    /* Pull quote */
-    .pull-quote {
-      border-left: 3px solid var(--accent);
-      padding: 20px 28px; margin: 32px 0;
-      background: rgba(108,99,255,0.06); border-radius: 0 var(--radius) var(--radius) 0;
-    }
-    .pull-quote p {
-      font-size: 1.05rem; font-style: italic;
-      color: var(--text); margin: 0; line-height: 1.7;
-    }
-
-    /* Checklist */
-    .checklist {
-      display: flex; flex-direction: column; gap: 10px; margin: 20px 0;
-    }
-    .checklist li {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 0.95rem; color: var(--text-muted);
-    }
-    .checklist li::before {
-      content: '✓'; color: #16a34a; font-weight: 700; flex-shrink: 0; margin-top: 1px;
-    }
-
-    /* CTA at bottom of article */
-    .article-cta {
-      background: linear-gradient(135deg, rgba(108,99,255,0.12), rgba(167,139,250,0.06));
-      border: 1px solid rgba(108,99,255,0.25);
-      border-radius: var(--radius); padding: 40px; text-align: center;
-      margin-top: 64px;
-    }
-    .article-cta h3 {
-      font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
-      color: var(--text); margin-bottom: 10px;
-    }
-    .article-cta p {
-      color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;
-    }
-    .article-cta .btn-group {
-      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .stat-grid { grid-template-columns: 1fr 1fr; }
-      .stat-grid .stat-box:last-child { grid-column: 1 / -1; }
-      .benefit-item:hover { transform: none; }
-      .compare-table { font-size: 0.82rem; }
-      .compare-table th, .compare-table td { padding: 10px 12px; }
-      .article-cta { padding: 28px 20px; }
-      .article h2 { font-size: 1.3rem; margin-top: 48px; }
-    }
-    @media (max-width: 480px) {
-      .stat-grid { grid-template-columns: 1fr; }
-      .stat-grid .stat-box:last-child { grid-column: auto; }
-    }
-  </style>
 </head>
 <body>
 
@@ -287,7 +107,7 @@
       </div>
 
       <!-- Section 2 -->
-      <h2><span class="h2-icon">🎯</span> Piesaistiet klientus, kamēr guļat</h2>
+      <h2><span class="h2-icon">🎯</span> Piesaistiet klientus, kamēr gulat</h2>
       <p>Google katru dienu apstrādā <strong>vairāk nekā 8 miljardu meklēšanas pieprasījumu</strong>. Daļa no tiem ir jūsu potenciālie klienti, kas meklē tieši to, ko jūs piedāvājat. Bez mājas lapas jūs šos klientus neredzat — un viņi neredz jūs.</p>
       <p>Ar labu SEO optimizāciju jūsu lapa parādās meklēšanas rezultātu augšā tieši tad, kad kāds meklē jūsu pakalpojumu. Tas nozīmē — klienti nāk pie jums, nevis jūs viņiem sekojat ar reklāmām.</p>
 
@@ -323,7 +143,7 @@
       </div>
 
       <!-- Section 3 -->
-      <h2><span class="h2-icon">🤝</span> Uzticamība, ko nevar nopirkt citur</h2>
+      <h2><span class="h2-icon">🤝</span> Uzticāmība, ko nevar nopirkt citur</h2>
       <p>Iedomājieties: jūs meklējat elektriķi. Atrodat divus — vienam ir profesionāla mājas lapa ar fotogrāfijām, atsauksmēm un skaidru cenu sarakstu. Otram tikai telefona numurs Facebook grupā. <strong>Kuram jūs zvanāt?</strong></p>
       <p>Mājas lapa piešķir jūsu uzņēmumam leģitimitāti. Tā parāda, ka esat nopietni, ka pastāvat jau kādu laiku un ka citi klienti jums uzticas.</p>
 
@@ -403,7 +223,7 @@
       </div>
 
       <!-- Section 6 -->
-      <h2><span class="h2-icon">📣</span> Sociālie mediji nav pietiekami</h2>
+      <h2><span class="h2-icon">📣</span> Sociālie mediņi nav pietiekami</h2>
       <p>Instagram un Facebook ir labi, bet tie nevar aizstāt mājas lapu. Algoritmi mainās, konti var tikt bloķēti, un platformas nosaka — kas redz jūsu saturu. <strong>Jūsu mājas lapa pieder jums.</strong></p>
       <p>Turklāt sociālie mediji labi strādā tad, kad klients jau zina par jums. Mājas lapa ar SEO ļauj atrast jūs tiem, kas par jums vēl nekad nav dzirdējuši — un tas ir daudz vērtīgāk.</p>
 
@@ -464,6 +284,9 @@
     <span class="whatsapp-float__tooltip">Rakstīt WhatsApp</span>
   </a>
 
-  <script src="main.js"></script>
+  <!-- JS -->
+  <script src="js/theme.js"></script>
+  <script src="js/nav.js"></script>
+
 </body>
 </html>
