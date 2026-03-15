@@ -16,17 +16,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Shared CSS -->
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/utilities.css" />
   <link rel="stylesheet" href="css/nav.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/responsive.css" />
-
-  <!-- Page-specific CSS -->
   <link rel="stylesheet" href="css/kapec-mais-lapa.css" />
-
   <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('vd-theme') || 'dark');</script>
 </head>
 <body>
@@ -156,51 +151,81 @@
         <li>Profesionāls dizains liecina par augstu darba kvalitāti</li>
       </ul>
 
-      <!-- Section 4 — Compare -->
+      <!-- Section 4 — Split Compare Cards -->
       <h2><span class="h2-icon">⚖️</span> Ar mājas lapu pret bez tās</h2>
       <p>Apskatīsim, kā izskatās uzņēmuma ikdiena ar profesionālu vietni salīdzinājumā ar tās neesamību.</p>
 
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Situācija</th>
-            <th>Bez mājas lapas</th>
-            <th>Ar mājas lapu</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Klients meklē pakalpojumu Google</td>
-            <td class="no">Jūs neparādāties</td>
-            <td class="yes">Jūs esat pirmajā lapā</td>
-          </tr>
-          <tr>
-            <td>Darba laiks beigās</td>
-            <td class="no">Klienti nevar uzzināt par jums</td>
-            <td class="yes">Lapa strādā 24/7</td>
-          </tr>
-          <tr>
-            <td>Klients vēlas uzzināt cenas</td>
-            <td class="no">Jāzvana vai jāraksta</td>
-            <td class="yes">Atbildes uzreiz lapā</td>
-          </tr>
-          <tr>
-            <td>Atsauksmes un portfolio</td>
-            <td class="no">Grūti prezentēt</td>
-            <td class="yes">Pārliecinoši redzamas</td>
-          </tr>
-          <tr>
-            <td>Salīdzinājums ar konkurentiem</td>
-            <td class="no">Zaudējat uzreiz</td>
-            <td class="yes">Izskatāties profesionāli</td>
-          </tr>
-          <tr>
-            <td>Jauni klienti bez reklāmas</td>
-            <td class="no">Gandrīz neiespējami</td>
-            <td class="yes">SEO nodrošina pastāvīgi</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="compare-split">
+
+        <!-- Left: Without -->
+        <div class="compare-col compare-col--bad">
+          <div class="compare-col__header">
+            <span class="compare-col__icon">✕</span>
+            <span class="compare-col__title">Bez mājas lapas</span>
+          </div>
+          <div class="compare-col__items">
+            <div class="compare-row">
+              <span class="compare-row__situation">Klients meklē pakalpojumu Google</span>
+              <span class="compare-row__outcome">Jūs neparādāties</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Darba laiks beigās</span>
+              <span class="compare-row__outcome">Klienti nevar uzzināt par jums</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Klients vēlas uzzināt cenas</span>
+              <span class="compare-row__outcome">Jāzvana vai jāraksta</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Atsauksmes un portfolio</span>
+              <span class="compare-row__outcome">Grūti prezentēt</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Salīdzinājums ar konkurentiem</span>
+              <span class="compare-row__outcome">Zaudējat uzreiz</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Jauni klienti bez reklāmas</span>
+              <span class="compare-row__outcome">Gandrīz neiespējami</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: With -->
+        <div class="compare-col compare-col--good">
+          <div class="compare-col__header">
+            <span class="compare-col__icon">✓</span>
+            <span class="compare-col__title">Ar mājas lapu</span>
+          </div>
+          <div class="compare-col__items">
+            <div class="compare-row">
+              <span class="compare-row__situation">Klients meklē pakalpojumu Google</span>
+              <span class="compare-row__outcome">Jūs esat pirmajā lapā</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Darba laiks beigās</span>
+              <span class="compare-row__outcome">Lapa strādā 24/7</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Klients vēlas uzzināt cenas</span>
+              <span class="compare-row__outcome">Atbildes uzreiz lapā</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Atsauksmes un portfolio</span>
+              <span class="compare-row__outcome">Pārliecinoši redzamas</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Salīdzinājums ar konkurentiem</span>
+              <span class="compare-row__outcome">Izskatāties profesionāli</span>
+            </div>
+            <div class="compare-row">
+              <span class="compare-row__situation">Jauni klienti bez reklāmas</span>
+              <span class="compare-row__outcome">SEO nodrošina pastāvīgi</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
       <!-- Section 5 -->
       <h2><span class="h2-icon">📈</span> Reāla ietekme uz ieņēmumiem</h2>
@@ -284,7 +309,6 @@
     <span class="whatsapp-float__tooltip">Rakstīt WhatsApp</span>
   </a>
 
-  <!-- JS -->
   <script src="js/theme.js"></script>
   <script src="js/nav.js"></script>
 
