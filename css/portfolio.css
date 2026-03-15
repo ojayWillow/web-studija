@@ -1,0 +1,51 @@
+/* =============================================
+   PORTFOLIO
+   ============================================= */
+
+.work { background: var(--work-bg); transition: background 0.3s ease; }
+.work__filters { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; }
+.filter-btn { background: var(--bg-2); border: 1px solid var(--border); color: var(--text-muted); border-radius: var(--radius-pill); padding: 8px 20px; font-size: 0.85rem; font-weight: 500; font-family: var(--font-body); cursor: pointer; transition: var(--transition); }
+.filter-btn:hover { border-color: var(--accent); color: var(--text); }
+.filter-btn--active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.work__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+.work-card {
+  display: block; border-radius: var(--radius); overflow: hidden;
+  background: var(--bg-2); border: 1px solid var(--border);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+  cursor: pointer; will-change: transform;
+}
+.work-card:hover { box-shadow: var(--card-shadow-hover); border-color: rgba(108,99,255,0.4); }
+.work-card.hidden { opacity: 0; pointer-events: none; transform: scale(0.96) !important; }
+
+/* Per-category tag colours */
+.work-card[data-category="ecommerce"] .work-card__tag { color: #f59e0b; }
+.work-card[data-category="beauty"]    .work-card__tag { color: #ec4899; }
+.work-card[data-category="services"]  .work-card__tag { color: #10b981; }
+.work-card[data-category="creator"]   .work-card__tag { color: #6366f1; }
+
+[data-theme="light"] .work-card[data-category="ecommerce"] .work-card__tag { background: rgba(245,158,11,0.12); padding: 2px 8px; border-radius: var(--radius-pill); display: inline-block; }
+[data-theme="light"] .work-card[data-category="beauty"]    .work-card__tag { background: rgba(236,72,153,0.1);  padding: 2px 8px; border-radius: var(--radius-pill); display: inline-block; }
+[data-theme="light"] .work-card[data-category="services"]  .work-card__tag { background: rgba(16,185,129,0.1);  padding: 2px 8px; border-radius: var(--radius-pill); display: inline-block; }
+[data-theme="light"] .work-card[data-category="creator"]   .work-card__tag { background: rgba(99,102,241,0.1);  padding: 2px 8px; border-radius: var(--radius-pill); display: inline-block; }
+
+[data-theme="light"] .work-card[data-category="ecommerce"]:hover { border-color: rgba(245,158,11,0.4); box-shadow: 0 16px 48px rgba(245,158,11,0.12); }
+[data-theme="light"] .work-card[data-category="beauty"]:hover    { border-color: rgba(236,72,153,0.3); box-shadow: 0 16px 48px rgba(236,72,153,0.1); }
+[data-theme="light"] .work-card[data-category="services"]:hover  { border-color: rgba(16,185,129,0.3); box-shadow: 0 16px 48px rgba(16,185,129,0.1); }
+[data-theme="light"] .work-card[data-category="creator"]:hover   { border-color: rgba(99,102,241,0.3); box-shadow: 0 16px 48px rgba(99,102,241,0.12); }
+
+.browser-frame { display: flex; flex-direction: column; }
+.browser-bar { display: flex; align-items: center; gap: 6px; padding: 9px 14px; background: var(--bg-3); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.browser-url { flex: 1; font-size: 0.7rem; color: var(--text-muted); background: var(--bg); border-radius: var(--radius-pill); padding: 3px 10px; margin-left: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.browser-visit { font-size: 0.68rem; font-weight: 600; color: var(--accent-2); opacity: 0; transition: opacity 0.2s ease; white-space: nowrap; }
+.work-card:hover .browser-visit { opacity: 1; }
+.browser-viewport { position: relative; width: 100%; height: 220px; overflow: hidden; background: #fff; }
+.browser-viewport iframe { position: absolute; top: 0; left: 0; width: 1280px; height: 900px; border: none; transform-origin: top left; transform: scale(0.295); pointer-events: none; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+.work-card:hover .browser-viewport iframe { transform: scale(0.295) translateY(-180px); }
+.work-card__meta { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-top: 1px solid var(--border); }
+.work-card__tag { display: block; font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; color: var(--accent-2); }
+.work-card__meta h4 { font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+.work-card__arrow { font-size: 1.1rem; color: var(--text-dim); transition: color 0.2s ease, transform 0.2s ease; }
+.work-card:hover .work-card__arrow { color: var(--accent-2); transform: translate(3px,-3px); }
+[data-theme="light"] .work-card { background: #fff; border-color: rgba(0,0,0,0.08); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+[data-theme="light"] .browser-bar { background: #f0f1f8; }

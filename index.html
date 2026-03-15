@@ -137,86 +137,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('vd-theme') || 'dark');</script>
 
-  <style>
-    /* Cookie Consent Banner */
-    #cookie-banner {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 48px);
-      max-width: 700px;
-      background: #1a1a2e;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      z-index: 99999;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-      backdrop-filter: blur(12px);
-      animation: slideUp 0.4s ease;
-    }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-    }
-    #cookie-banner .cookie-banner__icon {
-      font-size: 1.6rem;
-      flex-shrink: 0;
-    }
-    #cookie-banner .cookie-banner__text {
-      flex: 1;
-    }
-    #cookie-banner .cookie-banner__text strong {
-      display: block;
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.95);
-      margin-bottom: 4px;
-    }
-    #cookie-banner .cookie-banner__text p {
-      margin: 0;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.5;
-    }
-    .cookie-banner__actions {
-      display: flex;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-    #cookie-accept {
-      background: linear-gradient(135deg, #7c3aed, #a78bfa);
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    #cookie-decline {
-      background: transparent;
-      color: rgba(255,255,255,0.5);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    #cookie-decline:hover { color: rgba(255,255,255,0.8); }
-    @media (max-width: 560px) {
-      #cookie-banner { flex-direction: column; align-items: flex-start; bottom: 16px; }
-      .cookie-banner__actions { width: 100%; }
-      #cookie-accept, #cookie-decline { flex: 1; text-align: center; }
-    }
-  </style>
+  <!-- Split CSS files -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/utilities.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/services.css" />
+  <link rel="stylesheet" href="css/packages.css" />
+  <link rel="stylesheet" href="css/portfolio.css" />
+  <link rel="stylesheet" href="css/cta.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('vd-theme') || 'dark');</script>
 </head>
 <body>
 
@@ -613,7 +548,14 @@
     </div>
   </div>
 
-  <script src="main.js"></script>
+  <!-- Split JS files -->
+  <script src="js/theme.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/portfolio.js"></script>
+  <script src="js/contact.js"></script>
 
   <script>
     // Cookie consent logic

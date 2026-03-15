@@ -1,0 +1,11 @@
+/* =============================================
+   FOOTER
+   ============================================= */
+
+.footer { background: var(--bg-2); border-top: 1px solid var(--border); padding: 48px 0 24px; transition: background 0.3s ease; }
+.footer__inner { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; gap: 32px; flex-wrap: wrap; }
+.footer__left p { color: var(--text-muted); font-size: 0.88rem; margin-top: 8px; max-width: 260px; }
+.footer__links { display: flex; gap: 28px; flex-wrap: wrap; }
+.footer__links a { color: var(--text-muted); font-size: 0.88rem; transition: color var(--transition); }
+.footer__links a:hover { color: var(--text); }
+.footer__bottom { border-top: 1px solid var(--border); padding-top: 20px; text-align: center; color: var(--text-dim); font-size: 0.8rem; }
