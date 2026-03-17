@@ -152,7 +152,6 @@
   overflow: hidden;
 }
 
-/* Video / photo background */
 .pv-cat__bg {
   position: absolute; inset: 0;
   z-index: 0;
@@ -168,21 +167,18 @@
   z-index: 1;
 }
 
-/* Restaurant overlay — warm dark amber */
 .pv-cat--restoran .pv-cat__overlay {
   background: linear-gradient(135deg,
     rgba(10,6,0,0.92) 0%,
     rgba(20,10,0,0.85) 40%,
     rgba(8,9,13,0.75) 100%);
 }
-/* Salon overlay — dark rose */
 .pv-cat--salons .pv-cat__overlay {
   background: linear-gradient(135deg,
     rgba(10,0,8,0.93) 0%,
     rgba(20,0,15,0.85) 40%,
     rgba(8,9,13,0.75) 100%);
 }
-/* Fitness overlay — dark orange */
 .pv-cat--fitness .pv-cat__overlay {
   background: linear-gradient(135deg,
     rgba(10,4,0,0.93) 0%,
@@ -202,7 +198,6 @@
   width: 100%;
 }
 
-/* Left — story */
 .pv-cat__story {}
 .pv-cat__number {
   font-family: var(--font-display);
@@ -257,7 +252,6 @@
 .pv-cat--salons   .pv-cat__quote { border-color: rgba(236,72,153,0.4); }
 .pv-cat--fitness  .pv-cat__quote { border-color: rgba(249,115,22,0.4); }
 
-/* Elements list */
 .pv-cat__elements {
   display: flex;
   flex-direction: column;
@@ -302,7 +296,6 @@
   line-height: 1.5;
 }
 
-/* Right — live preview card */
 .pv-cat__preview {
   display: flex;
   flex-direction: column;
@@ -353,7 +346,6 @@
 .pv-cat--salons   .pv-preview-cta { background: #ec4899; }
 .pv-cat--fitness  .pv-preview-cta { background: #f97316; }
 
-/* Preview cards row */
 .pv-preview-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -381,7 +373,6 @@
   color: rgba(255,255,255,0.35);
 }
 
-/* Review strip */
 .pv-preview-review {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.07);
@@ -566,9 +557,7 @@
     <button class="pv-nav__pill" data-target="fitness">💪 Fitnesa klubs</button>
   </nav>
 
-  <!-- ═══════════════════════════════════════
-       INTRO
-  ════════════════════════════════════════ -->
+  <!-- INTRO -->
   <section class="pv-intro" id="intro">
     <div class="pv-intro__grid"></div>
     <div class="pv-intro__glow"></div>
@@ -578,19 +567,17 @@
         Dzīvs priekšskatījums
       </div>
       <h1 class="reveal">Katrs bizness ir<br/><em>atšķirīgs</em></h1>
-      <p class="pv-intro__sub reveal reveal-delay-1">Tāpēc katrai mājas lapai ir cita pieeja. Ritiniet zemāk un uzziniet, ko tieši jūsu nozare prasa — un ko mēs jums izveidosim.</p>
+      <p class="pv-intro__sub reveal reveal-delay-1">Tāpēc katrai mājas lapai ir cita pieeja. Ritiniet uz leju un uzziniet, ko tieši jūsu nozare prasa — un ko mēs jums izveidosim.</p>
       <div class="pv-intro__scroll reveal reveal-delay-2">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        Ritināt zemāk
+        Ritināt uz leju
       </div>
     </div>
   </section>
 
   <div class="pv-divider"></div>
 
-  <!-- ═══════════════════════════════════════
-       1. RESTORĀNS
-  ════════════════════════════════════════ -->
+  <!-- 1. RESTORĀNS -->
   <section class="pv-cat pv-cat--restoran" id="restoran">
     <div class="pv-cat__bg">
       <img
@@ -602,19 +589,18 @@
     <div class="pv-cat__overlay"></div>
     <div class="pv-cat__inner">
 
-      <!-- Left: story -->
       <div class="pv-cat__story">
         <div class="pv-cat__number">01</div>
         <div class="pv-cat__label">🍽️ Restorāns / Kafejnīca</div>
         <h2 class="pv-cat__title reveal">Klients izvēlas<br/><span>ar acīm</span></h2>
-        <p class="pv-cat__quote reveal reveal-delay-1">"Pirms ienākt restorānā, cilvēks skatās uz foto. Ja lapā nav attēlu — restorāna viņam nav."
+        <p class="pv-cat__quote reveal reveal-delay-1">"Pirms ienākt restorānā, cilvēks skatās uz foto. Ja lapā nav attēlu — restorāns viņam nepastāv."
         </p>
         <div class="pv-cat__elements">
           <div class="pv-cat__el reveal reveal-delay-1">
             <div class="pv-cat__el-icon">🎬</div>
             <div class="pv-cat__el-body">
               <div class="pv-cat__el-title">Video vai foto hero</div>
-              <div class="pv-cat__el-desc">Pirmais iespaids — atmosfēra, kas pārdod vēl pirms lasīšanas</div>
+              <div class="pv-cat__el-desc">Pirmais iespaids — atmosfēra, kas pārdod vēl pirms, kad klients sāk lasīt</div>
             </div>
           </div>
           <div class="pv-cat__el reveal reveal-delay-2">
@@ -641,7 +627,6 @@
         </div>
       </div>
 
-      <!-- Right: live preview -->
       <div class="pv-cat__preview reveal reveal-delay-1">
         <div class="pv-preview-hero">
           <div class="pv-preview-hero__bg" style="background-image:url('https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
@@ -683,9 +668,7 @@
 
   <div class="pv-divider"></div>
 
-  <!-- ═══════════════════════════════════════
-       2. SKAISTUMKOPŠANA
-  ════════════════════════════════════════ -->
+  <!-- 2. SKAISTUMKOPŠANA -->
   <section class="pv-cat pv-cat--salons" id="salons">
     <div class="pv-cat__bg">
       <img
@@ -697,7 +680,6 @@
     <div class="pv-cat__overlay"></div>
     <div class="pv-cat__inner">
 
-      <!-- Left -->
       <div class="pv-cat__story">
         <div class="pv-cat__number">02</div>
         <div class="pv-cat__label">💇 Skaistumkopšana / Barbershop</div>
@@ -736,7 +718,6 @@
         </div>
       </div>
 
-      <!-- Right -->
       <div class="pv-cat__preview reveal reveal-delay-1">
         <div class="pv-preview-hero">
           <div class="pv-preview-hero__bg" style="background-image:url('https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
@@ -767,7 +748,7 @@
           <div class="pv-preview-review__avatar">👤</div>
           <div>
             <div class="pv-preview-review__stars">★★★★★</div>
-            <p>"Laura ir burve! Balayage izdevās perfekti — precizitāte augstākā līmenī."</p>
+            <p>"Laura ir īsta profesionāle! Balayage izdevās perfekti — precizitāte augstākā līmenī."</p>
             <div class="pv-preview-review__author">— Sanita R., Rīga · Google</div>
           </div>
         </div>
@@ -778,9 +759,7 @@
 
   <div class="pv-divider"></div>
 
-  <!-- ═══════════════════════════════════════
-       3. FITNESS
-  ════════════════════════════════════════ -->
+  <!-- 3. FITNESS -->
   <section class="pv-cat pv-cat--fitness" id="fitness">
     <div class="pv-cat__bg">
       <img
@@ -792,19 +771,18 @@
     <div class="pv-cat__overlay"></div>
     <div class="pv-cat__inner">
 
-      <!-- Left -->
       <div class="pv-cat__story">
         <div class="pv-cat__number">03</div>
         <div class="pv-cat__label">💪 Fitnesa / Sporta klubs</div>
         <h2 class="pv-cat__title reveal">Motivācija sākas<br/><span>ar pirmo skatienu</span></h2>
-        <p class="pv-cat__quote reveal reveal-delay-1">"Potenciālais klients lēmumu pieņem 8 sekundēs. Lapai jāenerģizē — uzreiz."
+        <p class="pv-cat__quote reveal reveal-delay-1">"Potenciālais klients lēmumu pieņem 8 sekundēs. Lapai jāiedvesmo — uzreiz."
         </p>
         <div class="pv-cat__elements">
           <div class="pv-cat__el reveal reveal-delay-1">
             <div class="pv-cat__el-icon">🎬</div>
             <div class="pv-cat__el-body">
-              <div class="pv-cat__el-title">Energētisks hero</div>
-              <div class="pv-cat__el-desc">Video vai foto, kas uzreiz rada sajūtu — "es gribu šeit trenēties"</div>
+              <div class="pv-cat__el-title">Enerģētisks hero</div>
+              <div class="pv-cat__el-desc">Video vai foto, kas uzreiz rada sajūtu: "es gribu šeit trenēties"</div>
             </div>
           </div>
           <div class="pv-cat__el reveal reveal-delay-2">
@@ -831,7 +809,6 @@
         </div>
       </div>
 
-      <!-- Right -->
       <div class="pv-cat__preview reveal reveal-delay-1">
         <div class="pv-preview-hero">
           <div class="pv-preview-hero__bg" style="background-image:url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
@@ -862,7 +839,7 @@
           <div class="pv-preview-review__avatar">👤</div>
           <div>
             <div class="pv-preview-review__stars">★★★★★</div>
-            <p>"3 mēnešos zaudēju 8 kg. Andris ir fantastisks treneris — motivē un prot skaidrot."</p>
+            <p>"3 mēnešos zaudēju 8 kg. Andris ir lielisks treneris — motivē un māk skaidrot."</p>
             <div class="pv-preview-review__author">— Jānis O., Rīga · Google</div>
           </div>
         </div>
@@ -873,15 +850,13 @@
 
   <div class="pv-divider"></div>
 
-  <!-- ═══════════════════════════════════════
-       CLOSING CTA
-  ════════════════════════════════════════ -->
+  <!-- CLOSING CTA -->
   <section class="pv-cta">
     <div class="pv-cta__glow"></div>
     <div class="pv-cta__inner">
-      <div class="pv-cta__kicker">Gatavs sākt?</div>
+      <div class="pv-cta__kicker">Gatavi sākt?</div>
       <h2 class="reveal">Jūsu uzņēmums varētu<br/>izskatīties <span>tieši tā</span></h2>
-      <p class="reveal reveal-delay-1">Pirmā konsultācija bez maksas. Pastāstiet par savu biznesu — mēs izveidosim lapu, kas pārdod.</p>
+      <p class="reveal reveal-delay-1">Pirmā konsultācija bez maksas. Pastāstiet mums par savu uzņēmumu — mēs izveidosim lapu, kas pārdod.</p>
       <div class="pv-cta__btns reveal reveal-delay-2">
         <a href="/#contact" class="btn btn--primary btn--lg">Sākt projektu →</a>
         <a href="/#packages" class="btn btn--outline btn--lg">Skatīt cenas</a>
@@ -898,14 +873,12 @@
   <script src="js/theme.js"></script>
   <script src="js/nav.js"></script>
   <script>
-    // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     revealEls.forEach(el => observer.observe(el));
 
-    // Active pill on scroll
     const sections = ['restoran','salons','fitness'];
     const pills = document.querySelectorAll('.pv-nav__pill');
     const scrollSpy = new IntersectionObserver((entries) => {
@@ -919,7 +892,6 @@
     }, { threshold: 0.4 });
     sections.forEach(id => { const el = document.getElementById(id); if(el) scrollSpy.observe(el); });
 
-    // Pill click scroll
     pills.forEach(pill => {
       pill.addEventListener('click', () => {
         const target = document.getElementById(pill.dataset.target);
